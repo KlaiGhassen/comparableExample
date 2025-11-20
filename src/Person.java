@@ -42,13 +42,16 @@ public class Person implements Comparable<Person> {
         return this.age - o.age;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Person person)) return false;
         return id == person.id && age == person.age && Objects.equals(name, person.name);
     }
-
 
 
     @Override
